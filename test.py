@@ -1,23 +1,19 @@
-hp = 999
-answer = 0
+dic_a = {' ': '1',
+         'A': '2', 'B': '2', 'C': '2',
+         'D': '3', 'E': '3', 'F': '3',
+         'G': '4', 'H': '4', 'I': '4',
+         'J': '5', 'K': '5', 'L': '5',
+         'M': '6', 'N': '6', 'O': '6',
+         'P': '7', 'Q': '7', 'R': '7', 'S': '7',
+         'T': '8', 'U': '8', 'V': '8',
+         'W': '9', 'X': '9', 'Y': '9', 'Z': '9',
+         'OPERATOR': '0',
+         }
 
-if hp // 5:  # hp가 5로 나누어진다면 장군개미 공격 가능
-    answer += hp//5
-    hp = hp % 5
-    if hp // 3:  # hp가 3으로 나누어진다면 장군개미 공격 가능
-        answer += hp//3
-        hp = hp % 3
-        if hp < 3:
-            answer += hp
-    else:
-        answer += hp
-elif hp // 3:
-    answer += hp//3
-    hp = hp % 3
-    if hp < 3:
-        answer += hp
-else:
-    answer += hp
+S = input()
+time = 0
+for a in S:
+    num = dic_a[a]
+    time += (int(num)+1)
 
-
-print(answer, hp)
+print(time)
