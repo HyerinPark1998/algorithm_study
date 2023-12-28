@@ -71,7 +71,7 @@ numbers = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 def solution(N, B):
     n = N // B
     num = N % B
-    # 몫이 0이 되었을 때 재귀함수를 빠져나갈 수 있도록 장치
+    # 몫이 0이 되었을 때 함수를 빠져나갈 수 있도록 장치
     if n == 0:
         num = N % B
         return numbers[num]
