@@ -38,7 +38,19 @@ for i in range(len(score)//m):
     price += min(box)*m
 
 # 시간 초과가 발행하였다. 어디서 시간을 많이 잡아먹는 걸까.
+# 슬라이싱이 인덱스를 돌면서 자르기 때문에 시간을 잡아먹는다고 한다. 두번이나 실행하니 문제가 생긴 듯 하다.
+# 그래서 슬라이싱이 아닌 range를 활용하여 건너뛰어 숫자를 세기로 했다. 담은 사과를 없애는게 아니라 건너뛰어서 박스에 담을 첫 숫자가 i로 오게 하였다.
 
+
+# 최종 함수
+def solution(k, m, score):
+    price = 0
+    score.sort(reverse=True)
+    for i in range(0, len(score), m):
+        box = score[i:i+m]
+        if len(box) == m:
+            price += min(box)*m
+    return price
 
 # ----------------------------------
 # https://school.programmers.co.kr/learn/courses/30/lessons/132267
@@ -49,6 +61,7 @@ for i in range(len(score)//m):
 # 제한사항
 # 1 ≤ b < a ≤ n ≤ 1,000,000
 # 정답은 항상 int 범위를 넘지 않게 주어집니다.
+
 
 a = 2
 b = 1
