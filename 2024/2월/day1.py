@@ -100,6 +100,42 @@ while range(n):
 
 # 역시나 시간이 오래걸린다. 다시 풀어보는 걸로..
 
+# 지금 보니 코드가 뭔가 이상하다 내가 의도한 대로 안된것 같다.
+# 반복문으로 하나씩 더해갔을 때 시작점을 매번 달라지게 해야할것 같다.
+check = 1
+start = 1
+while True:
+    sum = 0
+    for i in range(start, n):
+        sum += i
+    if sum == n:
+        check += 1
+        start += 1
+        continue
+    elif sum > n:
+        start += 1
+        continue
+    if start >= n:
+        break
+
+# 시간이 계속 오래걸려서 이중 for문으로 바꿔보겠다.
+
+
+# if문을 안쪽에 넣었어야했는데 위치를 잘못 했던것 같다.
+# 최종함수
+def solution(n):
+    check = 1
+    for j in range(1, n):
+        sum = 0
+        for i in range(j, n):
+            sum += i
+            if sum == n:
+                check += 1
+                continue
+            elif sum > n:
+                break
+    return check
+
 
 # ----------------------------------
 # https://school.programmers.co.kr/learn/courses/30/lessons/138476
